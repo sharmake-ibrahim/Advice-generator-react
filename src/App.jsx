@@ -10,8 +10,8 @@ function App() {
   try {
     const res = await fetch(ApiUrl);
     const data = await res.json()
-    console.log("advice", data)
-    setAdvice(data)
+   console.log(data)
+    setAdvice(data?.slip)
   } 
     catch(error) {
       console.log(error.message)
@@ -22,13 +22,15 @@ function App() {
   handleFetchAdvice()
  },[])
 
- 
- const {advice, id} = adviice.slip
+
 
  const handleClick = ()=> {
   handleFetchAdvice()
  }
 
+
+
+ const {id, advice} = adviice
   return (
     <>
       <h1 key={id}> {advice}</h1>
